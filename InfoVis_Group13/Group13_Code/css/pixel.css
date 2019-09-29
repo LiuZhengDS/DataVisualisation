@@ -1,0 +1,52 @@
+#art{
+  margin: 0 auto;
+  display: table;
+  border-spacing: 1px;
+  background-color: black;
+  border: 5px solid black;
+}  
+
+.row{
+  display: table-row;
+}
+
+.pixel{
+  display: table-cell;
+  background-color: white;
+  width: 80px;
+  height: 80px;
+}
+
+.ptooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.ptooltip-inner { 
+	white-space: pre-line; 
+}
+
+.ptooltip .tooltiptext {
+  visibility: hidden;
+  width: 80px;
+  height: auto;
+  background-color: #DED38C;
+  color: #823953;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+#pix0:hover .tooltiptext, #pix1:hover .tooltiptext, 
+#pix2:hover .tooltiptext, #pix3:hover .tooltiptext,
+#pix4:hover .tooltiptext, #pix5:hover .tooltiptext,
+#pix6:hover .tooltiptext, #pix7:hover .tooltiptext,
+#pix8:hover .tooltiptext{
+  visibility: visible;
+}

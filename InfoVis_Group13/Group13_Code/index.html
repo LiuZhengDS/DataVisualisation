@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+  
+</style>
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.default.css">
+    <link rel="stylesheet" href="css/scatter.css">
+    <link rel="stylesheet" href="css/pixel.css">
+</head>
+
+<body>
+
+   
+<!--====================================================
+                        PAGE CONTENT
+======================================================-->
+<div class="page-content d-flex align-items-stretch">
+    <!--***** SIDE NAVBAR *****-->
+    <nav class="side-navbar">
+        <div class="sidebar-header d-flex align-items-center">
+            <div class="avatar"></div>
+                <div class="title">
+                    <h1 >Visualization of Health and Finance data</h1>
+                </div>
+            </div>
+        <hr>
+        <!-- Sidebar Navidation Menus-->
+        <ul class="list-unstyled"> <span class="heading">Health</span>
+            <li><a href="#apps"  data-toggle="collapse"> General </a>
+                <ul id="apps" class="collapse list-unstyled">
+                    <li><a><input type="checkbox" name="category" value="birth rate" />    Birth rate (per 1,000 people)</a></li>
+                    <li><a><input type="checkbox" name="category" value="death rate" />    Death rate (per 1,000 people)</a></li> 
+                    <li><a><input type="checkbox" name="category" value="population ages 0-14" />    Population ages 0-14 (% of total)</a></li> 
+                    <li><a><input type="checkbox" name="category" value="population ages 15-64" />    Population ages 15-64 (% of total)</a></li>
+                    <li><a><input type="checkbox" name="category" value="population 65 above" />    Population ages 65 and above (% of total)</a></li>  
+                </ul>
+            </li>
+            <li><a href="#forms" aria-expanded="false" data-toggle="collapse">Illness</a>
+                <ul id="forms" class="collapse list-unstyled">
+                    <li><a><input type="checkbox" name="category" value="tuberculosis" />    Incidence of tuberculosis (per 100,000 people)</a></li> 
+                    <li><a><input type="checkbox" name="category" value="HIV_total" />   Prevalence of HIV, total (% of population ages 15-49)                        </a></li> 
+                    <li><a><input type="checkbox" name="category" value="anemia among children" />    Prevalence of anemia among children (% of children under 5)</a></li>
+                    <li><a><input type="checkbox" name="category" value="undernourishment" />    Prevalence of undernourishment (% of population)</a></li>  
+                </ul>
+            </li>
+            <li><a href="#pages" aria-expanded="false" data-toggle="collapse"> Medical care </a>
+                <ul id="pages" class="collapse list-unstyled">
+                    <li><a><input type="checkbox" name="category" value="hospital beds" />    Hospital beds (per 1,000 people)</a></li> 
+                    <li><a><input type="checkbox" name="category" value="Immunization_DPT" />    Immunization, DPT (% of children ages 12-23 months)</a></li> 
+                    <li><a><input type="checkbox" name="category" value="Immunization_measles" />    Immunization, measles (% of children ages 12-23 months)</a></li> 
+                    <li><a><input type="checkbox" name="category" value="Tuberculosis case detection rate" />    Tuberculosis case detection rate (%, all forms)</a></li> 
+                </ul>
+            </li>
+        </ul><span class="heading">Finance</span>
+        <ul class="list-unstyled"> 
+            <li> <a> <input type="checkbox" name="category" value="GDP(US$)" />    GDP (current US$) </a></li>
+            <li> <a> <input type="checkbox" name="category" value="GDP per capita" />    GDP per capita (current US$) </a></li>
+            <li> <a> <input type="checkbox" name="category" value="tax revenue" />    tax revenue (% of GDP) </a></li>
+            <li> <a> <input type="checkbox" name="category" value="External debt stocks, total" />    External debt stocks, total (DOD, current US$) </a></li>
+            <li> <a> <input type="checkbox" name="category" value="Gross savings" />    Gross savings (% of GDP)  </a></li>
+            <li> <a> <input type="checkbox" name="category" value="GNI per capita, PPP" />    GNI per capita, PPP (current international $)  </a></li>
+        </ul>
+        </ul><span class="heading">Year</span>
+        <ul class="list-unstyled">               
+            <a><div class="value">2000</div>
+                <div class="range">
+                    <input id = "range1" type="range" min="2000" max="2016" step="1" value="0">
+                        <p class="rang_width"></p>
+                </div>
+            </a>
+            <p><a><input id="btnOperate" type="button" value="choose" /></a></p>
+        </ul>
+    </nav>
+        
+    <!--***** inner content *****-->
+    <div class="content-inner"> 
+        <div class="ptooltip" id="art">
+            <div class="row">
+              <div id="pix0" class="pixel" style="background-color:#be64ac"></div>
+              <div id="pix1" class="pixel" style="background-color:#8c62aa"></div>
+              <div id="pix2" class="pixel" style="background-color:#3b4994"></div>
+            </div>
+            
+            <div class="row">
+              <div id="pix3" class="pixel" style="background-color:#dfb0d6"></div>
+              <div id="pix4" class="pixel" style="background-color:#a5add3"></div>
+              <div id="pix5" class="pixel" style="background-color:#5698b9"></div>
+            </div>
+            
+            <div class="row">
+              <div id="pix6" class="pixel" style="background-color:#e8e8e8"></div>
+              <div id="pix7" class="pixel" style="background-color:#ace4e4"></div>
+              <div id="pix8" class="pixel" style="background-color:#5ac8c8"></div>
+            </div>
+        </div>  
+        <br><br><br><br>
+        <div id="scatter"></div>   
+    </div>
+    <div class="content-inner">
+        <div id="map"></div>
+    </div>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+      
+    <script type="text/javascript" src="js/colorPixel.js"></script>    
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src='js/scatter.js'></script>
+    <script type="text/javascript" src="js/data_process.js"></script>
+    
+</body>
+
+</html>
